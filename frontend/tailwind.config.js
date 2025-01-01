@@ -1,4 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+import typography from '@tailwindcss/typography';
+import daisyui from 'daisyui';
+
 export default {
   content: [
     "./index.html",
@@ -9,8 +11,10 @@ export default {
   },
   darkMode: 'class',
   plugins: [
-    require("@tailwindcss/typography"), require("daisyui")
-  ],  daisyui: {
+    typography,
+    daisyui
+  ],
+  daisyui: {
     themes: [
       {
         mytheme: {
@@ -21,16 +25,11 @@ export default {
           "base-100": "#ffffff",
         },
       },
-      {
-        business: {
-          ...require("daisyui/src/theming/themes")["business"],
-        },
-      },
+      "business",  // You can use this directly
       "light",
       "dark",
       "cupcake",
       "forest",
-      "business"
     ],
   },
 };
